@@ -5,11 +5,9 @@ class School
     @school_name = school_name
     @roster = {}
   end
-
   # def roster
   #   @roster
   # end
-
   def grade(grade)
     roster[grade]
   end
@@ -19,11 +17,19 @@ class School
     roster[grade] << name
   end
 
-  def sort
-    roster[grade].map do |key, value|
-      key.sort
+#   def sort
+#     roster.map do |key, value|
+#       key.sort
+#   end
+# end
+
+def sort
+    sorted = {}
+    roster.each do |grade, students|
+      sorted[grade] = students.sort
+    end
+    sorted
   end
-end
 end
 
 # school.sort
